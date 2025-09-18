@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potnet | 3D Printed Plant Pots</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .pot-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1598880304945-3ff1a3b1f0d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .pot-image {
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+        .pot-image:hover {
+            transform: scale(1.05);
+        }
+        .nav-link:hover {
+            color: #8b5a2b;
+        }
+        .logo{
+            height: 60px; /* increased size */
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15)); /* bold effect */
+        }
+    </style>
+</head>
+<body class="bg-white font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="nav-link text-stone-600 hover:text-stone-900 font-medium">Home</a>
+                    <a href="#collections" class="nav-link text-stone-600 hover:text-stone-900 font-medium">Collections</a>
+                </div>
+                
+                <div class="flex-1 flex justify-center">
+                    <a href="#" class="text-2xl font-bold text-stone-700 flex items-center">
+                        <img src="media/logo.png" alt="Potnet Logo" class="logo">
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex space-x-6">
+                    <a href="#aboutus" class="nav-link text-stone-600 hover:text-stone-900 font-medium">About</a>
+                    <a href="#contact" class="nav-link text-stone-600 hover:text-stone-900 font-medium">Contact</a>
+                </div>
+            </div>
+            
+            <div class="flex items-center">
+                <button class="md:hidden text-gray-700" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <a href="#home" class="block py-2 text-gray-700 hover:text-amber-700">Home</a>
+            <a href="#collections" class="block py-2 text-gray-700 hover:text-amber-700">Collections</a>
+            <a href="#about" class="block py-2 text-gray-700 hover:text-amber-700">About</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-amber-700">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-white py-36 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <video autoplay muted loop class="w-full h-full object-cover">
+                <source src="media/hero_video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-serif font-light mb-6 text-white tracking-wider">Grow in Style</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-white font-light"> 3D pots for the modern connoisseur</p>
+            <a href="#collections" class="border border-[#8b5a2b] hover:bg-[#8b5a2b] hover:text-white text-[#8b5a2b] font-light py-3 px-8 text-lg transition duration-300 inline-block">View Collections</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="text-amber-700 text-4xl mb-4">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Custom Designs</h3>
+                    <p class="text-gray-600">Choose from our collection or request a custom design tailored to your needs.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-amber-700 text-4xl mb-4">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Eco-Friendly</h3>
+                    <p class="text-gray-600">Made with real wood filament that's safe for your plants and the environment.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="text-amber-700 text-4xl mb-4">
+                        <i class="fas fa-feather"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Fast Shipping</h3>
+                    <p class="text-gray-600">Orders ship within 2-3 business days with tracking information provided.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="collections" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-serif font-light text-center mb-12">Our Collections</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Collection 1 -->
+                <div class="collection-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="overflow-hidden">
+                        <img src="media/collection1.png" alt="Modern Collection" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-2xl font-serif font-light mb-4">Modern Collection</h3>
+                        <p class="text-gray-600 mb-6">Sleek geometric designs for contemporary spaces</p>
+                        <a href="/collection1.html" class="bg-[#8b5a2b] hover:bg-[#6b4420] text-white font-medium py-3 px-8 rounded-full inline-block transition duration-300">View Collection</a>
+                    </div>
+                </div>
+                
+                <!-- Collection 2 -->
+                <div class="collection-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="overflow-hidden">
+                        <img src="media/collection1.png" alt="Organic Collection" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-2xl font-serif font-light mb-4">Organic Collection</h3>
+                        <p class="text-gray-600 mb-6">Nature-inspired flowing forms and textures</p>
+                        <a href="/collection2.html" class="bg-[#8b5a2b] hover:bg-[#6b4420] text-white font-medium py-3 px-8 rounded-full inline-block transition duration-300">View Collection</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="aboutus" class="py-20 bg-white relative overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="media/aboutusimg.jpg" alt="About Us Background" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-6 relative z-10 flex items-center min-h-[400px]">
+            <div class="max-w-2xl w-full md:w-1/2">
+                <!-- Blurry Background -->
+                <div class="bg-white/60 backdrop-blur-md rounded-lg p-8 shadow-lg">
+                    <h2 class="text-3xl font-bold mb-8 text-left underline">About Us</h2>
+                    <p class="text-gray-700 text-lg mb-4 text-left">
+                        Potnet is dedicated to blending modern technology with nature. Our mission is to create unique, eco-friendly plant pots using advanced 3D printing techniques and sustainable materials. Each pot is designed with care, combining aesthetics and functionality to help your plants thrive in style.
+                    </p>
+                    <p class="text-gray-700 text-lg text-left">
+                        We believe in innovation, sustainability, and supporting plant lovers everywhere. Thank you for choosing Potnet to be a part of your green journey!
+                    </p>
+                </div>
+            </div>
+            <div class="hidden md:block md:w-1/2"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="media/logob.png" alt="3D Printing Process" class="rounded-lg shadow-lg w-2/3 mx-auto">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6 underline">Contact</h2>
+                    <p class="text-gray-600 mb-4">Our 3D-printed plant pots are available for purchase on Hellenic Orchids. If you have any questions about our products, feel free to reach out! You can contact us directly or get in touch with Hellenic Orchids for more details.</p>
+                    
+                    <a href="#contact" class="bg-[#8b5a2b] hover:bg-[#6b4420] text-white font-bold py-2 px-6 rounded-full inline-block transition duration-300">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Minimal Footer -->
+    <footer class="py-8 bg-[#5c3a21] text-stone-200">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm">© 2025 Powered by Potnet.  Collaborate with Hellenic Orchids.</p>
+        </div>
+    </footer>
+</body>
+</html>
