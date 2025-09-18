@@ -6,6 +6,7 @@
     <title>Potnet | 3D Printed Plant Pots</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="media/favicon.png">
     <style>
         .pot-card:hover {
             transform: translateY(-5px);
@@ -30,6 +31,16 @@
         .logo{
             height: 60px; /* increased size */
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15)); /* bold effect */
+        }
+        .collection-card .object-cover {
+            transition: transform 0.5s cubic-bezier(.4,0,.2,1);
+        }
+        .collection-card:hover .object-cover {
+            transform: scale(1.10);
+        }
+        /* ...existing code... */
+        #collections:hover > .absolute {
+            transform: scale(1.07);
         }
     </style>
 </head>
@@ -72,7 +83,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative bg-white py-36 overflow-hidden">
+    <section id="home" class="relative bg-white min-h-[60vh] flex items-center justify-center overflow-hidden py-0">
         <div class="absolute inset-0 z-0">
             <video autoplay muted loop class="w-full h-full object-cover">
                 <source src="media/hero_video.mp4" type="video/mp4">
@@ -80,9 +91,9 @@
             </video>
             <div class="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
-        <div class="container mx-auto px-6 text-center relative z-10">
+        <div class="container mx-auto px-6 text-center relative z-10 flex flex-col items-center justify-center min-h-[60vh]">
             <h1 class="text-4xl md:text-6xl font-serif font-light mb-6 text-white tracking-wider">Grow in Style</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-white font-light"> 3D pots for the modern connoisseur</p>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-white font-light">3D pots for the modern connoisseur</p>
             <a href="#collections" class="border border-[#8b5a2b] hover:bg-[#8b5a2b] hover:text-white text-[#8b5a2b] font-light py-3 px-8 text-lg transition duration-300 inline-block">View Collections</a>
         </div>
     </section>
@@ -91,21 +102,21 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center p-6">
+                <div class="text-center p-6 flex flex-col items-center">
                     <div class="text-amber-700 text-4xl mb-4">
                         <i class="fas fa-paint-brush"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-2">Custom Designs</h3>
                     <p class="text-gray-600">Choose from our collection or request a custom design tailored to your needs.</p>
                 </div>
-                <div class="text-center p-6">
+                <div class="text-center p-6 flex flex-col items-center">
                     <div class="text-amber-700 text-4xl mb-4">
                         <i class="fas fa-leaf"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-2">Eco-Friendly</h3>
                     <p class="text-gray-600">Made with real wood filament that's safe for your plants and the environment.</p>
                 </div>
-                <div class="text-center p-6">
+                <div class="text-center p-6 flex flex-col items-center">
                     <div class="text-amber-700 text-4xl mb-4">
                         <i class="fas fa-feather"></i>
                     </div>
@@ -117,47 +128,27 @@
     </section>
 
     <!-- Shop Section -->
-    <section id="collections" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-serif font-light text-center mb-12">Our Collections</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Collection 1 -->
-                <div class="collection-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl">
-                    <div class="overflow-hidden">
-                        <img src="media/collection1.png" alt="Modern Collection" class="w-full h-64 object-cover">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-2xl font-serif font-light mb-4">Modern Collection</h3>
-                        <p class="text-gray-600 mb-6">Sleek geometric designs for contemporary spaces</p>
-                        <a href="/collection1.html" class="bg-[#8b5a2b] hover:bg-[#6b4420] text-white font-medium py-3 px-8 rounded-full inline-block transition duration-300">View Collection</a>
-                    </div>
-                </div>
-                
-                <!-- Collection 2 -->
-                <div class="collection-card bg-white rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl">
-                    <div class="overflow-hidden">
-                        <img src="media/collection1.png" alt="Organic Collection" class="w-full h-64 object-cover">
-                    </div>
-                    <div class="p-6 text-center">
-                        <h3 class="text-2xl font-serif font-light mb-4">Organic Collection</h3>
-                        <p class="text-gray-600 mb-6">Nature-inspired flowing forms and textures</p>
-                        <a href="/collection2.html" class="bg-[#8b5a2b] hover:bg-[#6b4420] text-white font-medium py-3 px-8 rounded-full inline-block transition duration-300">View Collection</a>
-                    </div>
-                </div>
-            </div>
+    <section id="collections" 
+        class="relative min-h-[75vh] flex items-center justify-center overflow-hidden py-0 bg-white group transition-all duration-500"
+        style="cursor: pointer;">
+        <div class="absolute inset-0 z-0 transition-transform duration-700 ease-in-out group-hover:scale-105">
+            <img src="media/collection1.png" alt="Our Collection Background" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        </div>
+        <div class="w-full h-full flex flex-col items-center justify-center text-center relative z-10 min-h-[75vh]">
+            <a href="/collection.html" class="bg-[#8b5a2b] hover:bg-[#6b4420] text-white font-medium py-4 px-12 rounded-full text-2xl transition duration-300 shadow-lg">
+                Our Collection
+            </a>
         </div>
     </section>
 
     <!-- About Us Section -->
     <section id="aboutus" class="py-20 bg-white relative overflow-hidden">
-        <!-- Background Image -->
         <div class="absolute inset-0 z-0">
             <img src="media/aboutusimg.jpg" alt="About Us Background" class="w-full h-full object-cover">
         </div>
-        <div class="container mx-auto px-6 relative z-10 flex items-center min-h-[400px]">
+        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center min-h-[400px]">
             <div class="max-w-2xl w-full md:w-1/2">
-                <!-- Blurry Background -->
                 <div class="bg-white/60 backdrop-blur-md rounded-lg p-8 shadow-lg">
                     <h2 class="text-3xl font-bold mb-8 text-left underline">About Us</h2>
                     <p class="text-gray-700 text-lg mb-4 text-left">
@@ -176,13 +167,12 @@
     <section id="about" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8 flex justify-center">
                     <img src="media/logob.png" alt="3D Printing Process" class="rounded-lg shadow-lg w-2/3 mx-auto">
                 </div>
-                <div class="md:w-1/2">
+                <div class="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
                     <h2 class="text-3xl font-bold mb-6 underline">Contact</h2>
                     <p class="text-gray-600 mb-4">Our 3D-printed plant pots are available for purchase on Hellenic Orchids. If you have any questions about our products, feel free to reach out! You can contact us directly or get in touch with Hellenic Orchids for more details.</p>
-                    
                     <a href="#contact" class="bg-[#8b5a2b] hover:bg-[#6b4420] text-white font-bold py-2 px-6 rounded-full inline-block transition duration-300">Contact Us</a>
                 </div>
             </div>
