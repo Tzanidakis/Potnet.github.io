@@ -8,6 +8,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="media/favicon.png">
     <style>
+        /* Custom scrollbar */
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: #8b5a2b #f3f3f3;
+        }
+        ::-webkit-scrollbar {
+            width: 10px;
+            background: #f3f3f3;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #8b5a2b;
+            border-radius: 8px;
+        }
         .pot-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -25,8 +38,27 @@
         .pot-image:hover {
             transform: scale(1.05);
         }
+        .nav-link {
+            position: relative;
+            transition: color 0.2s;
+        }
         .nav-link:hover {
             color: #8b5a2b;
+        }
+        .nav-link::after {
+            content: "";
+            display: block;
+            margin: 0 auto;
+            width: 0%;
+            border-bottom: 2.5px solid #8b5a2b;
+            border-radius: 2px;
+            margin-top: 4px;
+            transition: width 0.35s cubic-bezier(.4,0,.2,1);
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after,
+        .nav-link:focus::after {
+            width: 60%;
         }
         .logo{
             height: 60px; /* increased size */
@@ -38,9 +70,20 @@
         .collection-card:hover .object-cover {
             transform: scale(1.10);
         }
-        /* ...existing code... */
         #collections:hover > .absolute {
             transform: scale(1.07);
+        }
+        .lux-social a {
+            color: #222 !important;
+            transition: color 0.2s, transform 0.2s;
+        }
+        .lux-social.potnet a:hover {
+            color: #e7d7b7 !important; /* beige */
+            transform: scale(1.15);
+        }
+        .lux-social.hellenic a:hover {
+            color: #ff9900 !important; /* orange */
+            transform: scale(1.15);
         }
     </style>
 </head>
@@ -50,19 +93,19 @@
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="hidden md:flex space-x-6">
-                    <a href="#home" class="nav-link text-stone-600 hover:text-stone-900 font-medium">Home</a>
-                    <a href="#collections" class="nav-link text-stone-600 hover:text-stone-900 font-medium">Collections</a>
+                    <a href="#home" class="nav-link text-stone-600 hover:text-stone-900 font-medium" id="nav-home">Home</a>
+                    <a href="#collections" class="nav-link text-stone-600 hover:text-stone-900 font-medium" id="nav-collections">Collection</a>
                 </div>
                 
                 <div class="flex-1 flex justify-center">
                     <a href="#" class="text-2xl font-bold text-stone-700 flex items-center">
-                        <img src="media/logo.png" alt="Potnet Logo" class="logo">
+                        <img src="media/logobl.png" alt="Potnet Logo" class="logo">
                     </a>
                 </div>
                 
                 <div class="hidden md:flex space-x-6">
-                    <a href="#aboutus" class="nav-link text-stone-600 hover:text-stone-900 font-medium">About</a>
-                    <a href="#contact" class="nav-link text-stone-600 hover:text-stone-900 font-medium">Contact</a>
+                    <a href="#aboutus" class="nav-link text-stone-600 hover:text-stone-900 font-medium" id="nav-aboutus">About </a>
+                    <a href="#contact" class="nav-link text-stone-600 hover:text-stone-900 font-medium" id="nav-contact">Contact Us</a>
                 </div>
             </div>
             
@@ -76,14 +119,14 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
             <a href="#home" class="block py-2 text-gray-700 hover:text-amber-700">Home</a>
-            <a href="#collections" class="block py-2 text-gray-700 hover:text-amber-700">Collections</a>
-            <a href="#about" class="block py-2 text-gray-700 hover:text-amber-700">About</a>
+            <a href="#collections" class="block py-2 text-gray-700 hover:text-amber-700">Collection</a>
+            <a href="#aboutus" class="block py-2 text-gray-700 hover:text-amber-700">About</a>
             <a href="#contact" class="block py-2 text-gray-700 hover:text-amber-700">Contact</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative bg-white min-h-[60vh] flex items-center justify-center overflow-hidden py-0">
+    <section id="home" class="relative bg-white min-h-[75vh] flex items-center justify-center overflow-hidden py-0">
         <div class="absolute inset-0 z-0">
             <video autoplay muted loop class="w-full h-full object-cover">
                 <source src="media/hero_video.mp4" type="video/mp4">
@@ -91,10 +134,10 @@
             </video>
             <div class="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
-        <div class="container mx-auto px-6 text-center relative z-10 flex flex-col items-center justify-center min-h-[60vh]">
+        <div class="container mx-auto px-6 text-center relative z-10 flex flex-col items-center justify-center min-h-[75vh]">
             <h1 class="text-4xl md:text-6xl font-serif font-light mb-6 text-white tracking-wider">Grow in Style</h1>
             <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-white font-light">3D pots for the modern connoisseur</p>
-            <a href="#collections" class="border border-[#8b5a2b] hover:bg-[#8b5a2b] hover:text-white text-[#8b5a2b] font-light py-3 px-8 text-lg transition duration-300 inline-block">View Collections</a>
+            <a href="#collections" class="border border-[#8b5a2b] hover:bg-[#8b5a2b] hover:text-white text-[#8b5a2b] font-light py-3 px-8 text-lg transition duration-300 inline-block">View Collection</a>
         </div>
     </section>
 
@@ -136,7 +179,11 @@
             <div class="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
         <div class="w-full h-full flex flex-col items-center justify-center text-center relative z-10 min-h-[75vh]">
-            <a href="/collection.html" class="bg-[#8b5a2b] hover:bg-[#6b4420] text-white font-medium py-4 px-12 rounded-full text-2xl transition duration-300 shadow-lg">
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-white font-light">
+                Discover our unique, 3D-printed pots designed for modern spaces.
+            </p>
+            <!-- Updated link to point to collection.html -->
+            <a href="collection.html" class="border border-[#8b5a2b] hover:bg-[#8b5a2b] hover:text-white text-[#8b5a2b] font-light py-3 px-8 text-lg transition duration-300 inline-block bg-white bg-opacity-0">
                 Our Collection
             </a>
         </div>
@@ -163,8 +210,8 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
+    <!-- About Section (Contact) -->
+    <section id="contact" class="py-20 bg-white scroll-mt-24">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8 flex justify-center">
@@ -172,8 +219,47 @@
                 </div>
                 <div class="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
                     <h2 class="text-3xl font-bold mb-6 underline">Contact</h2>
-                    <p class="text-gray-600 mb-4">Our 3D-printed plant pots are available for purchase on Hellenic Orchids. If you have any questions about our products, feel free to reach out! You can contact us directly or get in touch with Hellenic Orchids for more details.</p>
-                    <a href="#contact" class="bg-[#8b5a2b] hover:bg-[#6b4420] text-white font-bold py-2 px-6 rounded-full inline-block transition duration-300">Contact Us</a>
+                    <p class="text-gray-600 mb-4">
+                        Our 3D-printed plant pots are available for purchase on Hellenic Orchids. If you have any questions about our products, feel free to reach out! You can contact us directly or get in touch with Hellenic Orchids for more details.
+                    </p>
+                    <a href="#contact" class="bg-[#8b5a2b] hover:bg-[#6b4420] text-white font-bold py-2 px-6 rounded-full inline-block transition duration-300 mb-6">Contact Us</a>
+                    <!-- Social Icons Section -->
+                    <div class="flex flex-col gap-6 w-full">
+                        <!-- Potnet Socials -->
+                        <div class="flex flex-col items-center md:items-start">
+                            <span class="font-semibold text-[#8b5a2b] mb-2 flex items-center gap-2">
+                                <i class="fas fa-seedling"></i> Potnet
+                            </span>
+                            <div class="flex gap-4 lux-social potnet">
+                                <a href="https://mail.google.com/mail/?view=cm&to=potnet.store@gmail.com" target="_blank" rel="noopener" class="text-2xl" title="Email Potnet via Gmail">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="https://instagram.com/potnet" target="_blank" class="text-2xl" title="Potnet Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Hellenic Orchids Socials -->
+                        <div class="flex flex-col items-center md:items-start mt-4">
+                            <span class="font-semibold text-[#228B22] mb-2 flex items-center gap-2">
+                                <i class="fas fa-leaf"></i> Hellenic Orchids
+                            </span>
+                            <div class="flex gap-4 lux-social hellenic">
+                                <a href="https://mail.google.com/mail/?view=cm&to=info@hellenicorchids.gr" target="_blank" rel="noopener" class="text-2xl" title="Email Hellenic Orchids via Gmail">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="https://www.instagram.com/hellenicorchids/" target="_blank" class="text-2xl" title="Hellenic Orchids Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.facebook.com/hellenicorchids" target="_blank" class="text-2xl" title="Hellenic Orchids Facebook">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="https://www.youtube.com/@hellenicorchids" target="_blank" class="text-2xl" title="Hellenic Orchids YouTube">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -186,5 +272,31 @@
             <p class="text-sm">© 2025 Powered by Potnet.  Collaborate with Hellenic Orchids.</p>
         </div>
     </footer>
-</body>
-</html>
+
+    <script>
+        // Dynamic navbar highlighting with underline effect
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = [
+                {id: 'home', nav: 'nav-home'},
+                {id: 'collections', nav: 'nav-collections'},
+                {id: 'aboutus', nav: 'nav-aboutus'},
+                {id: 'contact', nav: 'nav-contact'}
+            ];
+            const navLinks = {};
+            sections.forEach(s => {
+                navLinks[s.id] = document.getElementById(s.nav);
+            });
+
+            function onScroll() {
+                let scrollPos = window.scrollY || window.pageYOffset;
+                let offset = 120; // adjust for sticky nav height
+                let current = sections[0].id;
+                for (let i = 0; i < sections.length; i++) {
+                    const section = document.getElementById(sections[i].id);
+                    if (section && section.offsetTop - offset <= scrollPos) {
+                        current = sections[i].id;
+                    }
+                }
+                // Remove active from all
+                Object.values(navLinks).forEach(link => {
+                    if
