@@ -11,14 +11,14 @@
         /* Reuse the same custom styles from homepage */
         html {
             scrollbar-width: thin;
-            scrollbar-color: #8b5a2b #f3f3f3;
+            scrollbar-color: #8b5a2b80  #f3f3f3;
         }
         ::-webkit-scrollbar {
             width: 10px;
             background: #f3f3f3;
         }
         ::-webkit-scrollbar-thumb {
-            background: #8b5a2b;
+            background: #8b5a2b80 ;
             border-radius: 8px;
         }
         .pot-card:hover {
@@ -30,14 +30,14 @@
             transition: color 0.2s;
         }
         .nav-link:hover {
-            color: #8b5a2b;
+            color: #986c42;
         }
         .nav-link::after {
             content: "";
             display: block;
             margin: 0 auto;
             width: 0%;
-            border-bottom: 2.5px solid #8b5a2b;
+            border-bottom: 2.5px solid #986c42;
             border-radius: 2px;
             margin-top: 4px;
             transition: width 0.35s cubic-bezier(.4,0,.2,1);
@@ -143,7 +143,7 @@
             <div class="flex items-center justify-between">
                 <div class="hidden md:flex space-x-6">
                     <a href="index.html" class="nav-link text-stone-600 hover:text-stone-900 font-medium">Home</a>
-                    <a href="#collection" class="nav-link text-stone-600 hover:text-stone-900 font-medium active">Collection</a>
+                    <a href="#collection" class="nav-link font-medium active text-[#986c42]">Collection</a>
                 </div>
                 
                 <div class="flex-1 flex justify-center">
@@ -168,7 +168,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
             <a href="index.html" class="block py-2 text-gray-700 hover:text-amber-700">Home</a>
-            <a href="#collection" class="block py-2 text-gray-70 hover:text-amber-700">Collection</a>
+            <a href="#collection" class="block py-2 font-medium active text-[#986c42] hover:text-[#986c42]">Collection</a>
             <a href="index.html#aboutus" class="block py-2 text-gray-700 hover:text-amber-700">About</a>
             <a href="index.html#contact" class="block py-2 text-gray-700 hover:text-amber-700">Contact</a>
         </div>
@@ -212,7 +212,9 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl font-semibold text-stone-800 mb-2">Ridgewood Vessel</h3>
-                        <p class="text-stone-600 mb-4">Clean lines and simple elegance for modern spaces.</p>
+                        <p class="text-stone-600 mb-4">
+                            Minimalist elegance with a natural woodgrain finish.<br>
+                        </p>
                         <div class="flex justify-between items-center">
                             <span class="text-amber-700 font-bold text-lg">from €15.90</span>
                             <a href="https://www.hellenicorchids.gr/orchids/3d-print-ridgewood-vessel/" class="buy-btn bg-[#8b5a2b] text-white py-2 px-4 rounded-full text-sm font-medium">Buy Now</a>
@@ -246,7 +248,7 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl font-semibold text-stone-800 mb-2">Titania’s Orb</h3>
-                        <p class="text-stone-600 mb-4">Angular design with a contemporary aesthetic.</p>
+                        <p class="text-stone-600 mb-4">A bold geometric sphere with a touch of fantasy, ideal for statement plants.</p>
                         <div class="flex justify-between items-center">
                             <span class="text-amber-700 font-bold text-lg">from €15.90</span>
                             <a href="https://www.hellenicorchids.gr/orchids/3d-print-titanias-orb/" class="buy-btn bg-[#8b5a2b] text-white py-2 px-4 rounded-full text-sm font-medium">Buy Now</a>
@@ -280,25 +282,25 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl font-semibold text-stone-800 mb-2">Spiral Echo</h3>
-                        <p class="text-stone-600 mb-4">Classic look with modern 3D-printed texture.</p>
+                        <p class="text-stone-600 mb-4">Dynamic spiral contours create a sense of movement and sophistication.</p>
                         <div class="flex justify-between items-center">
                             <span class="text-amber-700 font-bold text-lg">from €15.90</span>
-                            <a href="https://www.hellenicorchids.gr/orchids/3d-print-spiral-echo/?_gl=1*oqgujg*_up*MQ..*_ga*MTAwODYxNDIyMS4xNzU4MjM0NDMx*_ga_2D1NVHLE1B*czE3NTgyMzQ0MzAkbzEkZzAkdTE3NTgyMzQ0MzAkajYwJGwwJGgw" class="buy-btn bg-[#8b5a2b] text-white py-2 px-4 rounded-full textsm font-medium">Buy Now</a>
+                            <a href="https://www.hellenicorchids.gr/orchids/3d-print-spiral-echo/?_gl=1*oqgujg*_up*MQ..*_ga*MTAwODYxNDIyMS4xNzU4MjM0NDMx*_ga_2D1NVHLE1B*czE3NTgyMzQ0MzAkbzEkZzAkdTE3NTgyMzQ0MzAkajYwJGwwJGgw" class="buy-btn bg-[#8b5a2b] text-white py-2 px-4 rounded-full text-sm font-medium">Buy Now</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 4 -  Earthly Embrace -->
+                <!-- Product 4 - Earthly Embrace -->
                 <div class="pot-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300">
                     <div class="carousel-container" id="carousel-4">
                         <div class="carousel-slides">
                             <div class="carousel-slide">
                                 <img src="media/pots/Pot2(noplant).png" 
-                                     alt=" Earthly Embrace - Front View">
+                                     alt="Earthly Embrace - Front View">
                             </div>
                             <div class="carousel-slide">
                                 <img src="media/pots/Pot2(plant).png" 
-                                     alt=" Earthly Embrace - Side View">
+                                     alt="Earthly Embrace - Side View">
                             </div>
                         </div>
                         <button class="carousel-btn carousel-prev" onclick="moveSlide('carousel-4', -1)">
@@ -313,8 +315,8 @@
                         </div>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-xl font-semibold text-stone-800 mb-2"> Earthly Embrace</h3>
-                        <p class="text-stone-600 mb-4">Elevate your plants with this stylish hanging design.</p>
+                        <h3 class="text-xl font-semibold text-stone-800 mb-2">Earthly Embrace</h3>
+                        <p class="text-stone-600 mb-4">A gentle, organic form that cradles your plant in a natural embrace.</p>
                         <div class="flex justify-between items-center">
                             <span class="text-amber-700 font-bold text-lg">from €15.90</span>
                             <a href="https://www.hellenicorchids.gr/orchids/3d-print-earthly-embrace/" class="buy-btn bg-[#8b5a2b] text-white py-2 px-4 rounded-full text-sm font-medium">Buy Now</a>
@@ -348,7 +350,7 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl font-semibold text-stone-800 mb-2">Harmony Weave</h3>
-                        <p class="text-stone-600 mb-4">Modular design for creating vertical gardens.</p>
+                        <p class="text-stone-600 mb-4">Interwoven lines for a modular look—perfect for creative vertical gardens.</p>
                         <div class="flex justify-between items-center">
                             <span class="text-amber-700 font-bold text-lg">from €15.90</span>
                             <a href="https://www.hellenicorchids.gr/orchids/harmony-weave/" class="buy-btn bg-[#8b5a2b] text-white py-2 px-4 rounded-full text-sm font-medium">Buy Now</a>
@@ -356,7 +358,7 @@
                     </div>
                 </div>
 
-                <!-- Product 6 - Neofinetia -->
+                <!-- Product 6 - Woodgrain Pot (Neofinetia) -->
                 <div class="pot-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300">
                     <div class="carousel-container" id="carousel-6">
                         <div class="carousel-slides">
@@ -382,16 +384,15 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl font-semibold text-stone-800 mb-2">Woodgrain Pot</h3>
-                        <p class="text-stone-600 mb-4">Natural wood appearance with modern durability.</p>
+                        <p class="text-stone-600 mb-4">Inspired by traditional Japanese Neofinetia pots, with a realistic wood texture.</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-amber-700 font-bold text-lg">€26.99</span>
+                            <span class="text-amber-700 font-bold text-lg">from €9.99</span>
                             <a href="product-woodgrain.html" class="buy-btn bg-[#8b5a2b] text-white py-2 px-4 rounded-full text-sm font-medium">Buy Now</a>
                         </div>
                     </div>
                 </div>
 
-           
-                <!-- Product 7 - Hexagonal Planter (Modified) -->
+                <!-- Product 7 - Hexagonal Planter (Coming Soon) -->
                 <div class="pot-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300">
                     <div class="carousel-container" id="carousel-7">
                         <div class="carousel-slides">
@@ -403,15 +404,13 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl font-semibold text-stone-800 mb-2">Coming Soon</h3>
-                        <p class="text-stone-600 mb-4"></p>
                         <div class="flex justify-between items-center">
                             <span class="text-amber-700 font-bold text-lg"></span>
-                            
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 8 - Self-Watering Pot (Modified) -->
+                <!-- Product 8 - Self-Watering Pot (Coming Soon) -->
                 <div class="pot-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300">
                     <div class="carousel-container" id="carousel-8">
                         <div class="carousel-slides">
@@ -423,10 +422,8 @@
                     </div>
                     <div class="p-4">
                         <h3 class="text-xl font-semibold text-stone-800 mb-2">Coming Soon</h3>
-                        <p class="text-stone-600 mb-4"></p>
                         <div class="flex justify-between items-center">
                             <span class="text-amber-700 font-bold text-lg"></span>
-                            
                         </div>
                     </div>
                 </div>
@@ -436,7 +433,7 @@
 
     
     <!-- Minimal Footer -->
-    <footer class="py-8 bg-[#5c3a21] text-stone-200">
+    <footer class="py-8 bg-[#986c42] text-stone-200">
         <div class="container mx-auto px-4 text-center">
             <p class="text-sm">© 2025 Powered by Potnet. Collaborate with Hellenic Orchids.</p>
         </div>
